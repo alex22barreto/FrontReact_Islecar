@@ -17,10 +17,14 @@
 */
 import Index from "views/Index.js";
 import Profile from "views/examples/Profile.js";
-import Maps from "views/examples/Maps.js";
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
+import Ventas from "views/examples/Ventas.js";
+import Alertas from "views/examples/Alertas.js";
+import Compras from "views/examples/Compras.js";
+import Inventario from "views/examples/Inventario.js";
+import Ordenes from "views/examples/Ordenes.js";
 import Icons from "views/examples/Icons.js";
 
 var routes = [
@@ -32,33 +36,41 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "ni ni-planet text-blue",
-    component: Icons,
+    path: "/ventas",
+    name: "Ventas",
+    icon: "ni ni-shop text-green",
+    component: Ventas,
     layout: "/admin"
   },
   {
-    path: "/maps",
-    name: "Maps",
-    icon: "ni ni-pin-3 text-orange",
-    component: Maps,
+    path: "/alertas",
+    name: "Alertas",
+    icon: "ni ni-bell-55 text-red",
+    component: Alertas,
     layout: "/admin"
   },
   {
-    path: "/user-profile",
-    name: "User Profile",
-    icon: "ni ni-single-02 text-yellow",
-    component: Profile,
+    path: "/compras",
+    name: "Compras",
+    icon: "ni ni-cart text-orange",
+    component: Compras,
     layout: "/admin"
   },
   {
-    path: "/tables",
-    name: "Tables",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Tables,
+    path: "/inventario",
+    name: "Inventario",
+    icon: "ni ni-chart-bar-32 text-Primary",
+    component: Inventario,
     layout: "/admin"
   },
+  {
+    path: "/ordenes",
+    name: "Ordenes",
+    icon: "ni ni-single-copy-04 text-info",
+    component: Ordenes,
+    layout: "/admin"
+  }
+  /*,
   {
     path: "/login",
     name: "Login",
@@ -72,6 +84,6 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth"
-  }
+  }*/
 ];
 export default routes;
