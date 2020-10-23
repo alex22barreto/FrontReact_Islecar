@@ -25,6 +25,8 @@ import Alertas from "views/examples/Alertas.js";
 import Compras from "views/examples/Compras.js";
 import Inventario from "views/examples/Inventario.js";
 import Ordenes from "views/examples/Ordenes.js";
+import SmartContract from "views/examples/SmartContract.js";
+import ConexionGoogleDrive from "views/examples/ConexionGoogleDrive";
 import Icons from "views/examples/Icons.js";
 
 var routes = [
@@ -68,6 +70,30 @@ var routes = [
     name: "Ordenes",
     icon: "ni ni-single-copy-04 text-info",
     component: Ordenes,
+    layout: "/admin"
+  }
+  ,
+  {
+    path: "/smartcontract",
+    name: "SmartContract",
+    icon: "ni ni-single-copy-04 text-info",
+    component: SmartContract,
+    layout: "/admin"
+  }
+  ,
+  {
+    path: "/perfil",
+    name: "Perfil",
+    icon: "ni ni-single-copy-04 text-info",
+    component: Profile,
+    layout: "/admin"
+  }
+  ,
+  {
+    path: "/conexiongoogledrive",
+    name: "conexiongoogledrive",
+    icon: "ni ni-single-copy-04 text-info",
+    component: ConexionGoogleDrive,
     layout: "/admin"
   }
   /*,
