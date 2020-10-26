@@ -80,14 +80,14 @@ var routes = [
     component: SmartContract,
     layout: "/admin"
   }
-  ,
+  /*,
   {
     path: "/perfil",
     name: "Perfil",
     icon: "ni ni-single-copy-04 text-info",
     component: Profile,
     layout: "/admin"
-  }
+  }*/
   ,
   {
     path: "/conexiongoogledrive",
