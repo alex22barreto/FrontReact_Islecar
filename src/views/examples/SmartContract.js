@@ -35,6 +35,7 @@ import {
 
 // core components
 import Header from "components/Headers/Header.js";
+import axios from 'axios';
 
 class SmartContract extends React.Component {
 
@@ -60,41 +61,98 @@ class SmartContract extends React.Component {
             dropdownOpen: !this.state.dropdownOpen
         });
     }
-    changeValue(e) {
+    async  changeValue(e) {
         this.setState({dropDownValue: e.currentTarget.textContent});
         let id = e.currentTarget.getAttribute("id");
         console.log(id);
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        fetch("https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/ConsultarInventarioBigQuery", {
+
+        var data = {
+          message: id
+      };
+        
+      /*
+      const url = "https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/ConsultarInventarioBigQuery";
+      return await axios(
+        url, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
+          data
+        }
+      ).then(res => {
+        console.log(res)
+      })
+      
+
+
+
+      .catch(err => {
+        console.log(err)
+        console.log('error en seleccionar producto');
+      });*/
+
+      const requestOptions = {
+        dataType: "json",
+        mode: "no-cors", 
+        method: 'POST',
+        crossDomain: true,
+        useDefaultXhrHeader: false,
+        body: JSON.stringify({ message: id })
+      };
+
+      fetch("https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/pruebas", requestOptions)
+      .then(function(response) {
+        console.log(response);
+      })
+        .then(async response => {
+          
+            console.log(response);
+            const data = await response.json();
+
+            // check for error response
+            if (!response.ok) {
+                // get error message from body or default to response status
+                const error = (data && data.message) || response.status;
+                return Promise.reject(error);
+            }
+
+            console.log('I was triggered during changeValue');
+            console.log(data);
+        })
+        .catch(error => {
+            this.setState({ errorMessage: error.toString() });
+            console.error('There was an error!', error);
+        });
+
+
+        /*fetch("https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/ConsultarInventarioBigQuery", {
             method: 'POST',
             mode: "no-cors", 
-            headers,
-            crossDomain: true,
-            useDefaultXhrHeader: false,
-            body: JSON.stringify({
-                'message' : id
-              })
+            headers: { 'Content-Type': 'application/json' },        
+            body: JSON.stringify({ message: id })
+            //body: "{'message':'"+id+"'}"
             })
-          .then(res => res.json())
+            .then(res => res.json())
           .then(
             (result) => {
-              /*this.setState({
-                isLoaded: true,
-                items: result
-              });*/
-              console.log('I was triggered during componentDidMount');
+              
+              console.log('I was triggered during changeValue');
               console.log(result);
               
             },
             (error) => {
-                console.log('I was triggered during componentDidMount error');
+                console.log('I was triggered during changeValue error');
+                console.log(error);
               this.setState({
-                isLoaded: true,
+                isLoaded: false,
                 error
               });
             }
-          )
+          )*/
 
     }
     
@@ -119,6 +177,10 @@ class SmartContract extends React.Component {
               });
             }
           )
+
+
+          
+
       }
 
   render() {
@@ -188,12 +250,13 @@ class SmartContract extends React.Component {
                             >
                               Descripcion:
                             </label>
-                            <Input
-                              className="form-control-alternative"
-                              id="input-email"
-                              placeholder="jesse@example.com"
-                              type="email"
-                            />
+                            <br/>
+                            <label
+                              className="form-control-label"
+                              id="input-cantidad-disponible"
+                            >
+                              
+                            </label>
                           </FormGroup>
                         </Col>
                         <Col lg="4">
@@ -204,12 +267,13 @@ class SmartContract extends React.Component {
                             >
                               Precio Unitario:
                             </label>
-                            <Input
-                              className="form-control-alternative"
-                              id="input-email"
-                              placeholder="jesse@example.com"
-                              type="email"
-                            />
+                            <br/>
+                            <label
+                              className="form-control-label"
+                              id="input-cantidad-disponible"
+                            >
+                              
+                            </label>
                           </FormGroup>
                         </Col>
                       </Row>
@@ -238,13 +302,13 @@ class SmartContract extends React.Component {
                             >
                               Descuento:
                             </label>
-                            <Input
-                              className="form-control-alternative"
-                              defaultValue="Jesse"
-                              id="input-last-name"
-                              placeholder="Last name"
-                              type="text"
-                            />
+                            <br/>
+                            <label
+                              className="form-control-label"
+                              id="input-cantidad-disponible"
+                            >
+                              
+                            </label>
                           </FormGroup>
                         </Col>
                         <Col lg="4">
@@ -255,13 +319,13 @@ class SmartContract extends React.Component {
                             >
                               Precio Total:
                             </label>
-                            <Input
-                              className="form-control-alternative"
-                              defaultValue="Jesse"
-                              id="input-last-name"
-                              placeholder="Last name"
-                              type="text"
-                            />
+                            <br/>
+                            <label
+                              className="form-control-label"
+                              id="input-cantidad-disponible"
+                            >
+                              
+                            </label>
                           </FormGroup>
                         </Col>
                       </Row>
@@ -279,7 +343,7 @@ class SmartContract extends React.Component {
                               className="form-control-label"
                               id="input-cantidad-disponible"
                             >
-                              Cantidad Disponible:
+                              
                             </label>
                           </FormGroup>
                         </Col>
