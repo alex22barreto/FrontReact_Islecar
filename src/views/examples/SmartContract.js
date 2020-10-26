@@ -94,7 +94,7 @@ class SmartContract extends React.Component {
         console.log(err)
         console.log('error en seleccionar producto');
       });*/
-
+/*
       const requestOptions = {
         dataType: "json",
         mode: "no-cors", 
@@ -126,12 +126,11 @@ class SmartContract extends React.Component {
         .catch(error => {
             this.setState({ errorMessage: error.toString() });
             console.error('There was an error!', error);
-        });
+        });*/
 
 
-        /*fetch("https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/ConsultarInventarioBigQuery", {
+        fetch("https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/ConsultarInventarioBigQuery", {
             method: 'POST',
-            mode: "no-cors", 
             headers: { 'Content-Type': 'application/json' },        
             body: JSON.stringify({ message: id })
             //body: "{'message':'"+id+"'}"
@@ -152,7 +151,7 @@ class SmartContract extends React.Component {
                 error
               });
             }
-          )*/
+          )
 
     }
     
