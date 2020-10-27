@@ -100,6 +100,36 @@ class Ventas extends React.Component {
                         </UncontrolledCollapse>
                         <br/>
                     </div>
+                    <div>
+                        <Button color="primary" id="toggler5" style={{ marginBottom: '1rem' }}>
+                        Ventas Clusters
+                        </Button>
+                        <UncontrolledCollapse toggler="#toggler5">
+                        <Card>
+                            <CardBody>
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <iframe class="embed-responsive-item" src="https://datastudio.google.com/embed/reporting/ab18e8b5-49f0-4be4-bd1c-06ce0e300387/page/yj9lB" allowfullscreen></iframe>
+                            </div>
+                            </CardBody>
+                        </Card>
+                        </UncontrolledCollapse>
+                        <br/>
+                    </div>
+                    <div>
+                        <Button color="primary" id="toggler6" style={{ marginBottom: '1rem' }}>
+                        Predicción Ventas
+                        </Button>
+                        <UncontrolledCollapse toggler="#toggler6">
+                        <Card>
+                            <CardBody>
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <iframe class="embed-responsive-item" src="https://datastudio.google.com/embed/reporting/e116a776-2e8f-48f5-8e59-130fd18613c0/page/m6AmB" allowfullscreen></iframe>
+                            </div>
+                            </CardBody>
+                        </Card>
+                        </UncontrolledCollapse>
+                        <br/>
+                    </div>
                 </CardBody>
             </Card>
         </div>

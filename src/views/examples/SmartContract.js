@@ -131,7 +131,14 @@ class SmartContract extends React.Component {
 
         fetch("https://southamerica-east1-test-ips-8ebdf.cloudfunctions.net/ConsultarInventarioBigQuery", {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },        
+            mode: "cors",
+            headers: { 
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'POST',
+              'Access-Control-Allow-Headers': '*',
+              
+            },        
             body: JSON.stringify({ message: id })
             //body: "{'message':'"+id+"'}"
             })
