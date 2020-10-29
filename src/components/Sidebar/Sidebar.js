@@ -30,6 +30,7 @@ import {
   CardTitle,
   Collapse,
   DropdownMenu,
+  Dropdown,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
@@ -56,7 +57,8 @@ var ps;
 
 class Sidebar extends React.Component {
   state = {
-    collapseOpen: false
+    collapseOpen: false,
+    dropdownOpen: false
   };
   constructor(props) {
     super(props);
@@ -79,21 +81,73 @@ class Sidebar extends React.Component {
     });
   };
   // creates the links that appear in the left menu / Sidebar
+  
+
+  toggle = () =>{
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  };
+
   createLinks = routes => {
     return routes.map((prop, key) => {
-      return (
-        <NavItem key={key}>
-          <NavLink
-            to={prop.layout + prop.path}
-            tag={NavLinkRRD}
-            onClick={this.closeCollapse}
-            activeClassName="active"
-          >
-            <i className={prop.icon} />
-            {prop.name}
-          </NavLink>
-        </NavItem>
-      );
+      console.log("principal");
+      console.log(key);
+      console.log(prop);
+      
+      if (prop.subMenu) {
+        //console.log(key);
+        //console.log(prop);
+          return (
+            <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <i className={prop.icon} />
+                    {prop.name}
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                  {this.createLinksSubmenu(routes,prop.nameSubMenu)}
+    
+                  </DropdownMenu>
+                </UncontrolledDropdown>      
+          );
+        
+      }
+      else{
+        if (prop.nameSubMenu=="") {
+          return (
+            <NavItem key={key}>
+              <NavLink
+                to={prop.layout + prop.path}
+                tag={NavLinkRRD}
+                onClick={this.closeCollapse}
+                activeClassName="active"
+              >
+                <i className={prop.icon} />
+                {prop.name}
+              </NavLink>              
+            </NavItem>        
+          );
+        }
+        
+      }
+      
+      
+    });
+  };
+
+  createLinksSubmenu = (routes, auxRoutes) => {
+    return routes.map((prop, key) => {      
+      if (prop.nameSubMenu==auxRoutes && !prop.subMenu) {
+        console.log("submenu");
+        console.log(key);
+        console.log(prop);
+        return (
+          <DropdownItem key={key} tag={Link} to={prop.layout + prop.path}>            
+              <i className={prop.icon} />
+              {prop.name}             
+          </DropdownItem>        
+        );
+      }      
     });
   };
   render() {
@@ -238,7 +292,8 @@ class Sidebar extends React.Component {
               </InputGroup>
             </Form>
             {/* Navigation */}
-            <Nav navbar>{this.createLinks(routes)}</Nav>
+            <Nav navbar>{this.createLinks(routes)} </Nav>
+            {/*<Nav navbar>{this.createLinks(routes)}</Dropdown> </Nav>*/}
             {/* Divider */}
             <hr className="my-3" />
             {/* Heading */}
