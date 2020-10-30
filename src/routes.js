@@ -37,6 +37,9 @@ import RequerimientoCompraAccesorios from "views/examples/Ordenes/RequerimientoC
 import RequerimientoCompraInsumos from "views/examples/Ordenes/RequerimientoCompraInsumos.js";
 import SmartContract from "views/examples/SmartContract.js";
 import ConexionGoogleDrive from "views/examples/ConexionGoogleDrive";
+import VentasCruzadas from "views/examples/Indicadores/VentasCruzadas.js";
+import InventarioABC from "views/examples/Indicadores/InventarioABC.js";
+import RotacionInventario from "views/examples/Indicadores/RotacionInventario.js";
 
 
 var routes = [
@@ -239,8 +242,45 @@ var routes = [
     component: SmartContract,
     layout: "/admin",
     subMenu:true
+  }
+  ,
+  {
+    path: "/indicadores/ventasCruzadas",
+    name: "Ventas Cruzadas",
+    nameSubMenu: "Indicadores",
+    icon: "ni ni-chart-bar-32 text-Primary",
+    component: VentasCruzadas,
+    layout: "/admin",
+    subMenu:false
   },
   {
+    path: "/indicadores/inventarioABC",
+    name: "Inventario ABC",
+    nameSubMenu: "Indicadores",
+    icon: "ni ni-chart-bar-32 text-Primary",
+    component: InventarioABC,
+    layout: "/admin",
+    subMenu:false
+  },
+  {
+    path: "/indicadores/rotacionInventario",
+    name: "Rotacion Inventario",
+    nameSubMenu: "Indicadores",
+    icon: "ni ni-chart-bar-32 text-Primary",
+    component: RotacionInventario,
+    layout: "/admin",
+    subMenu:false
+  }
+  ,{
+    path: "/indicadores",
+    name: "Indicadores",
+    nameSubMenu: "Indicadores",
+    icon: "ni ni-chart-bar-32 text-Primary",
+    component: "",
+    layout: "/admin",
+    subMenu:true
+  }
+  /*,{
     path: "/perfil",
     name: "Perfil",
     nameSubMenu: "",
@@ -248,8 +288,8 @@ var routes = [
     component: Profile,
     layout: "/admin",
     subMenu:false
-  },
-  {
+  }*/
+  ,{
     path: "/conexiongoogledrive",
     name: "Conexiongoogledrive",
     nameSubMenu: "",
