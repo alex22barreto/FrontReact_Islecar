@@ -34,14 +34,13 @@ class ComprasProveedor extends React.Component {
       <>
         <Header />
         {/* Page content */}
-        <Container className="mt--7" fluid>
+        <Container className="mt--3" fluid>
         <div  >
             <Card>
                 <CardBody>
                             <div class="embed-responsive embed-responsive-1by1">
                             <iframe class="embed-responsive-item" src="https://datastudio.google.com/embed/reporting/ffb7ad66-2c4f-47c3-b8fd-3f0f03dcc789/page/jZHbB" allowfullscreen></iframe>
-                            </div>
-                    
+                            </div>                    
                 </CardBody>
             </Card>
         </div>

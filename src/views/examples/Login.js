@@ -33,8 +33,27 @@ import {
   Col
 } from "reactstrap";
 
+import firebase from 'firebase/app';
+import withFirebaseAuth from 'react-with-firebase-auth';
+
+const config = {
+  apiKey: "AIzaSyBAcwcGyaYCpmcXwg4yJOIPhckE1l-DEHE",
+  authDomain: "test-ips-8ebdf.firebaseapp.com",
+};
+
+const firebaseApp = firebase.initializeApp(config);
+
+console.log(firebaseApp);
+
 class Login extends React.Component {
+  
+  
+
+
   render() {
+    
+
+    const {user, signOut, signInWithGoogle} = this.props;
     return (
       <>
         <Col lg="5" md="7">
@@ -62,7 +81,7 @@ class Login extends React.Component {
                   className="btn-neutral btn-icon"
                   color="default"
                   href="#pablo"
-                  onClick={e => e.preventDefault()}
+                  onClick={signInWithGoogle}
                 >
                   <span className="btn-inner--icon">
                     <img
@@ -146,4 +165,8 @@ class Login extends React.Component {
   }
 }
 
+//const firebaseAppAuth = firebaseApp.auth();
+//const providers = {googleProvider: new firebase.auth.GoogleAuthProvider(), }
+
+//export default withFirebaseAuth({  providers,  firebaseAppAuth,})(Login);
 export default Login;

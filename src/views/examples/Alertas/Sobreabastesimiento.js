@@ -34,7 +34,7 @@ class Sobreabastesimiento extends React.Component {
       <>
         <Header />
         {/* Page content */}
-        <Container className="mt--7" fluid>
+        <Container className="mt--3" fluid>
         <div  >
             <Card>
                 <CardBody>

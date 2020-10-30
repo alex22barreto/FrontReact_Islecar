@@ -90,16 +90,16 @@ class Sidebar extends React.Component {
   };
 
   createLinks = routes => {
-    return routes.map((prop, key) => {
-      console.log("principal");
-      console.log(key);
-      console.log(prop);
+    return routes.map((prop) => {
+      //console.log("principal");
+      
+      //console.log(prop);
       
       if (prop.subMenu) {
         //console.log(key);
         //console.log(prop);
           return (
-            <UncontrolledDropdown nav inNavbar>
+            <UncontrolledDropdown key={prop.name} nav inNavbar>
                   <DropdownToggle nav caret>
                     <i className={prop.icon} />
                     {prop.name}
@@ -115,7 +115,7 @@ class Sidebar extends React.Component {
       else{
         if (prop.nameSubMenu=="") {
           return (
-            <NavItem key={key}>
+            <NavItem key={prop.name}>
               <NavLink
                 to={prop.layout + prop.path}
                 tag={NavLinkRRD}
@@ -136,13 +136,13 @@ class Sidebar extends React.Component {
   };
 
   createLinksSubmenu = (routes, auxRoutes) => {
-    return routes.map((prop, key) => {      
+    return routes.map((prop ) => {      
       if (prop.nameSubMenu==auxRoutes && !prop.subMenu) {
-        console.log("submenu");
-        console.log(key);
-        console.log(prop);
+        //console.log("submenu");
+        //console.log();
+        //console.log(prop);
         return (
-          <DropdownItem key={key} tag={Link} to={prop.layout + prop.path}>            
+          <DropdownItem key={prop.name} tag={Link} to={prop.layout + prop.path}>            
               <i className={prop.icon} />
               {prop.name}             
           </DropdownItem>        

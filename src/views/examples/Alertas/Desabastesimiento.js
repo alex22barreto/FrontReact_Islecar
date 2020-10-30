@@ -34,15 +34,13 @@ class Desabastesimiento extends React.Component {
       <>
         <Header />
         {/* Page content */}
-        <Container className="mt--7" fluid>
+        <Container className="mt--3" fluid>
         <div  >
             <Card>
                 <CardBody>
-                    
                             <div class="embed-responsive embed-responsive-1by1">
                             <iframe class="embed-responsive-item" src="https://datastudio.google.com/embed/reporting/4f67e4d8-87d7-43a6-8322-459ce46c8a43/page/MtcbB" allowfullscreen></iframe>
-                            </div>
-                                          
+                            </div>                                          
                 </CardBody>
             </Card>
         </div>

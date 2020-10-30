@@ -28,8 +28,8 @@ import VentaSegmentoClientes from "views/examples/Ventas/VentaSegmentoClientes.j
 import VentasProductos from "views/examples/Ventas/VentasProductos.js";
 import AlertaDesabastesimiento from "views/examples/Alertas/Desabastesimiento.js";
 import AlertaSobreabastesimiento from "views/examples/Alertas/Sobreabastesimiento.js";
-import ComprasProveedor from "views/examples/Compras/ComprasProveedor.js";
-import OrdenesCompraSugeridas from "views/examples/Compras/OrdenesCompraSugeridas.js";
+import ComprasComprasProveedor from "views/examples/Compras/ComprasProveedor.js";
+import ComprasOrdenesCompraSugeridas from "views/examples/Compras/OrdenesCompraSugeridas.js";
 import KardexInsumos from "views/examples/Inventario/KardexInsumos.js";
 import KardexMateriaPrima from "views/examples/Inventario/KardexMateriaPrima.js";
 import KardexProductoTerminado from "views/examples/Inventario/KardexProductoTerminado.js";
@@ -49,18 +49,10 @@ var routes = [
     layout: "/admin",
     subMenu:false
   }
-  /*,{
-    path: "/ventas",
-    name: "Ventas",
-    nameSubMenu: "Ventas",
-    icon: "ni ni-shop text-green",
-    component: "",
-    layout: "/admin",
-    subMenu:true
-  }
+  
   ,{
     path: "/ventas/prediccionVentas",
-    name: "Prediccion Ventas",
+    name: "PrediccionVentas",
     nameSubMenu: "Ventas",
     icon: "ni ni-shop text-green",
     component: PrediccionVentas,
@@ -69,7 +61,7 @@ var routes = [
   }
   ,{
     path: "/ventas/valorVentasProducto",
-    name: "Valor Ventas por Producto",
+    name: "ValorVentasporProducto",
     nameSubMenu: "Ventas",
     icon: "ni ni-shop text-green",
     component: ValorVentasProducto,
@@ -78,7 +70,7 @@ var routes = [
   }
   ,{
     path: "/ventas/ventasCliente",
-    name: "Ventas por Cliente",
+    name: "VentasporCliente",
     nameSubMenu: "Ventas",
     icon: "ni ni-shop text-green",
     component: VentasCliente,
@@ -87,7 +79,7 @@ var routes = [
   }
   ,{
     path: "/ventas/ventasClusters",
-    name: "Ventas Clusters",
+    name: "VentasClusters",
     nameSubMenu: "Ventas",
     icon: "ni ni-shop text-green",
     component: VentasClusters,
@@ -96,7 +88,7 @@ var routes = [
   }
   ,{
     path: "/ventas/ventaSegmentoClientes",
-    name: "Venta por Segmento de Clientes",
+    name: "VentaporSegmentodeClientes",
     nameSubMenu: "Ventas",
     icon: "ni ni-shop text-green",
     component: VentaSegmentoClientes,
@@ -105,13 +97,22 @@ var routes = [
   }
   ,{
     path: "/ventas/ventasProductos",
-    name: "Ventas por Productos",
+    name: "VentasporProductos",
     nameSubMenu: "Ventas",
     icon: "ni ni-shop text-green",
     component: VentasProductos,
     layout: "/admin",
     subMenu:false
-  }*/
+  }
+  ,{
+    path: "/ventas",
+    name: "Ventas",
+    nameSubMenu: "Ventas",
+    icon: "ni ni-shop text-green",
+    component: "",
+    layout: "/admin",
+    subMenu:true
+  }
   ,{
     path: "/alertas/sobreabastesimiento",
     name: "Sobreabastesimiento",
@@ -140,6 +141,24 @@ var routes = [
     subMenu:true
   }
   ,{
+    path: "/compras/comprasproveedor",
+    name: "ComprasporProveedor",
+    nameSubMenu: "Compras",
+    icon: "ni ni-cart text-orange",
+    component: ComprasComprasProveedor,
+    layout: "/admin",
+    subMenu:false
+  },
+  {
+    path: "/compras/ordenescomprasugeridas",
+    name: "OrdenesSugeridas",
+    nameSubMenu: "Compras",
+    icon: "ni ni-cart text-orange",
+    component: ComprasOrdenesCompraSugeridas,
+    layout: "/admin",
+    subMenu:false
+  }
+  ,{
     path: "/compras",
     name: "Compras",
     nameSubMenu: "Compras",
@@ -148,33 +167,7 @@ var routes = [
     layout: "/admin",
     subMenu:true
   }
-  ,{
-    path: "/compras/comprasProveedor",
-    name: "Compras por Proveedor",
-    nameSubMenu: "Compras",
-    icon: "ni ni-cart text-orange",
-    component: ComprasProveedor,
-    layout: "/admin",
-    subMenu:false
-  },
-  {
-    path: "/compras/ordenesCompraSugeridas",
-    name: "Ordenes Sugeridas",
-    nameSubMenu: "Compras",
-    icon: "ni ni-cart text-orange",
-    component: OrdenesCompraSugeridas,
-    layout: "/admin",
-    subMenu:false
-  },  
-  {
-    path: "/inventario",
-    name: "Inventario",
-    nameSubMenu: "Inventario",
-    icon: "ni ni-chart-bar-32 text-Primary",
-    component: "",
-    layout: "/admin",
-    subMenu:true
-  },
+  ,
   {
     path: "/inventario/kardexInsumos",
     name: "Insumos",
@@ -201,6 +194,33 @@ var routes = [
     component: KardexProductoTerminado,
     layout: "/admin",
     subMenu:false
+  }
+  ,{
+    path: "/inventario",
+    name: "Inventario",
+    nameSubMenu: "Inventario",
+    icon: "ni ni-chart-bar-32 text-Primary",
+    component: "",
+    layout: "/admin",
+    subMenu:true
+  },
+  {
+    path: "/ordenes/requerimientoCompraAccesorios",
+    name: "RequerimientodeCompraAccesorios",
+    nameSubMenu: "Ordenes",
+    icon: "ni ni-single-copy-04 text-info",
+    component: RequerimientoCompraAccesorios,
+    layout: "/admin",
+    subMenu:false
+  },
+  {
+    path: "/ordenes/requerimientoCompraInsumos",
+    name: "RequerimientodeCompraInsumos",
+    nameSubMenu: "Ordenes",
+    icon: "ni ni-single-copy-04 text-info",
+    component: RequerimientoCompraInsumos,
+    layout: "/admin",
+    subMenu:false
   },
   {
     path: "/ordenes",
@@ -210,24 +230,6 @@ var routes = [
     component: "",
     layout: "/admin",
     subMenu:true
-  },
-  {
-    path: "/ordenes/requerimientoCompraAccesorios",
-    name: "Requerimiento de Compra Accesorios",
-    nameSubMenu: "Ordenes",
-    icon: "ni ni-single-copy-04 text-info",
-    component: RequerimientoCompraAccesorios,
-    layout: "/admin",
-    subMenu:false
-  },
-  {
-    path: "/ordenes/requerimientoCompraInsumos",
-    name: "Requerimiento de Compra Insumos",
-    nameSubMenu: "Ordenes",
-    icon: "ni ni-single-copy-04 text-info",
-    component: RequerimientoCompraInsumos,
-    layout: "/admin",
-    subMenu:false
   },
   {
     path: "/smartcontract",
