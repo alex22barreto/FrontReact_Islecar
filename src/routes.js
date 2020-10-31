@@ -237,11 +237,11 @@ var routes = [
   {
     path: "/smartcontract",
     name: "SmartContract",
-    nameSubMenu: "SmartContract",
+    nameSubMenu: "",
     icon: "ni ni-single-copy-04 text-info",
     component: SmartContract,
     layout: "/admin",
-    subMenu:true
+    subMenu:false
   }
   ,
   {

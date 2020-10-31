@@ -196,7 +196,7 @@ class SmartContract extends React.Component {
         <>
         <Header />
         
-        <Container className="mt--7" fluid>
+        <Container className="mt--3" fluid>
     <div>Error: {error.message}</div>
     </Container>
           </>
@@ -206,7 +206,7 @@ class SmartContract extends React.Component {
         <>
         <Header />
         
-        <Container className="mt--4" fluid>
+        <Container className="mt--3" fluid>
         <div>Loading...</div>
         </Container>
           </>
@@ -216,7 +216,7 @@ class SmartContract extends React.Component {
             <>
         <Header />
         
-        <Container className="mt--7" fluid>
+        <Container className="mt--3" fluid>
         <div>
         <Row>
         <Col className="order-xl-1" xl="12">
